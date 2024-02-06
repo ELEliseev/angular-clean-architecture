@@ -1,0 +1,19 @@
+<div class="todo-container">
+  <header class="todo-container__header">
+    <h1>Список данных</h1>
+    <button (click)="onAddClick()">+</button>
+  </header>
+
+  <div class="todo-container__list">
+    <ul>
+      @for(item of items$ | async; track $index ){
+      <li
+        class="todo-container__item"
+        app-todo-item
+        [data]="item"
+        (itemClick)="onItemClick($event)"
+      ></li>
+      }
+    </ul>
+  </div>
+</div>

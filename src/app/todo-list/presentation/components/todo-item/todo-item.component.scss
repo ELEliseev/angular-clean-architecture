@@ -1,0 +1,15 @@
+:host {
+  border: 1px solid rgb(91, 96, 125);
+  padding: 4px 8px;
+}
+
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  min-width: 180px;
+  gap: 4px;
+
+  button {
+    color: rgb(227, 43, 43);
+  }
+}
