@@ -31,3 +31,16 @@
     margin-bottom: 5px;
   }
 }
+
+.qr {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 200px;
+  height: 200px;
+  background-color: azure;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
