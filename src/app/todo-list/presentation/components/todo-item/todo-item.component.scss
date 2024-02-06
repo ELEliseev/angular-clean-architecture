@@ -1,6 +1,7 @@
 :host {
   border: 1px solid rgb(91, 96, 125);
   padding: 4px 8px;
+  background-color: rgb(30, 81, 81);
 }
 
 .item-container {
@@ -8,6 +9,7 @@
   justify-content: space-between;
   min-width: 180px;
   gap: 4px;
+  color: aliceblue;
 
   button {
     color: rgb(227, 43, 43);
