@@ -1,8 +1,8 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { TodoItemsRepository } from '../../domain/repositories/todo-items-repository';
-import { BehaviorSubject, Observable, map, of, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { TodoItem } from '../../domain/entities/todo-item.model';
-import { Data, TodoItemData } from '../models/todo-list-data';
+import { TodoListData } from '../models/todo-list-data.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
@@ -16,8 +16,8 @@ export class TodoListDataService extends TodoItemsRepository {
 
   private initData() {
     this.httpClient
-      .get<Data>('assets/mock-data.json')
-      .pipe(map((data) => this.transform(data.items || [])))
+      .get<TodoListData>('assets/mock-data.json')
+      .pipe(map((data) => TodoListData.transform(data.items || [])))
       .subscribe((data) => this.todoItems$.next(data));
   }
 
@@ -43,12 +43,5 @@ export class TodoListDataService extends TodoItemsRepository {
     );
 
     return of(todoItem);
-  }
-
-  private transform(data: TodoItemData[]): TodoItem[] {
-    return data.map(({ Id: id, Description: description }) => ({
-      id,
-      description,
-    }));
   }
 }
